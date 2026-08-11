@@ -1,0 +1,13 @@
+services:
+  gitweb:
+    image: ghcr.io/techrevo/gitweb:latest
+    container_name: gitweb
+    restart: unless-stopped
+    network_mode: bridge
+    ports:
+      - 8080:80
+      - 2222:22
+    environment:
+      - SSH_PUB_KEY=
+    volumes:
+      - ./data:/var/lib/git

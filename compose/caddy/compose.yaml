@@ -1,0 +1,12 @@
+services:
+  caddy:
+    image: ghcr.io/techrevo/caddy-sablier-cloudflare:latest
+    container_name: caddy
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - CLOUDFLARE_API_TOKEN=
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./data:/data
+      - ./config:/config
